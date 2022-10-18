@@ -1,0 +1,15 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: ingress-controller-external-secrets-config
+policyDefaults:
+  namespace: policies
+  placement:
+    clusterSelectors:
+      vendor: "OpenShift"
+  remediationAction: enforce
+policies:
+  - name: ingress-controller-external-secrets-config 
+    manifests:
+      - path: ingress-controller-external-secrets-config.yaml
+

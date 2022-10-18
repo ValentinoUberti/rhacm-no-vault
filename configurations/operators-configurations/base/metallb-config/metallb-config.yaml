@@ -1,0 +1,16 @@
+apiVersion: metallb.io/v1beta1
+kind: MetalLB
+metadata:
+  name: metallb
+  namespace: metallb-system
+spec:
+  nodeSelector:
+    metallbSpeakerEnabled: "true"
+  speakerTolerations:
+    - key: node-role.kubernetes.io/infra
+      effect: NoSchedule
+      operator: Exists
+    - key: node-role.kubernetes.io/infra
+      effect: NoExecute
+      operator: Exists
+

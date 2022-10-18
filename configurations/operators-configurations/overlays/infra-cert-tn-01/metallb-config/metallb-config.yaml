@@ -1,0 +1,11 @@
+apiVersion: metallb.io/v1beta1
+kind: AddressPool
+metadata:
+  name: addresspool-01
+  namespace: metallb-system
+spec:
+  addresses:
+  - 10.120.82.135-10.120.82.140
+  autoAssign: true
+  protocol: layer2
+

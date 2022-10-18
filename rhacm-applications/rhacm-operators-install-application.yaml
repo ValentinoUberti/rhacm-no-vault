@@ -1,0 +1,62 @@
+apiVersion: app.k8s.io/v1beta1
+kind: Application
+metadata:
+  name: 00-operators-install
+  namespace: policies
+  annotations:
+    apps.open-cluster-management.io/deployables: ''
+    apps.open-cluster-management.io/subscriptions: policies/operatos-install-subscription-1,policies/operatos-install-subscription-1-local
+    open-cluster-management.io/user-group: c3lzdGVtOnNlcnZpY2VhY2NvdW50cyxzeXN0ZW06c2VydmljZWFjY291bnRzOm9wZW4tY2x1c3Rlci1tYW5hZ2VtZW50LHN5c3RlbTphdXRoZW50aWNhdGVk
+    open-cluster-management.io/user-identity: c3lzdGVtOnNlcnZpY2VhY2NvdW50Om9wZW4tY2x1c3Rlci1tYW5hZ2VtZW50Om11bHRpY2x1c3Rlci1hcHBsaWNhdGlvbnM=
+spec:
+  componentKinds:
+    - group: apps.open-cluster-management.io
+      kind: Subscription
+  descriptor: {}
+  selector:
+    matchExpressions:
+      - key: app
+        operator: In
+        values:
+          - 00-operators-install
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+metadata:
+  name:  00-operators-install-subscription-1
+  namespace: policies
+  annotations:
+    apps.open-cluster-management.io/cluster-admin: 'true'
+    apps.open-cluster-management.io/git-branch: main
+    apps.open-cluster-management.io/git-current-commit: d056fd02356b4d142ffba960f6c20c5ec0e58a75
+    apps.open-cluster-management.io/git-path: configurations/operators-install/overlays/infra-cert-tn-01
+    apps.open-cluster-management.io/reconcile-option: merge
+    open-cluster-management.io/user-group: b2NwLWluZnJhLWNlcnQtcnVvbG8tYW1taW5pc3RyYXRvcmksc3lzdGVtOmF1dGhlbnRpY2F0ZWQ6b2F1dGgsc3lzdGVtOmF1dGhlbnRpY2F0ZWQ=
+    open-cluster-management.io/user-identity: ZmNlZTM1
+  labels:
+    app:  00-operators-install
+    app.kubernetes.io/part-of:  00-operators-install
+    apps.open-cluster-management.io/reconcile-rate: medium
+spec:
+  channel: gastructure-infracert-cluster-ocp-infrastructure-infracer-ns/gastructure-infracert-cluster-ocp-infrastructure-infracer
+  placement:
+    placementRef:
+      name: 00-operators-install-placement-1
+      kind: PlacementRule
+posthooks: {}
+prehooks: {}
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name:  00-operators-install-placement-1
+  namespace: policies
+  annotations:
+    open-cluster-management.io/user-group: b2NwLWluZnJhLWNlcnQtcnVvbG8tYW1taW5pc3RyYXRvcmksc3lzdGVtOmF1dGhlbnRpY2F0ZWQ6b2F1dGgsc3lzdGVtOmF1dGhlbnRpY2F0ZWQ=
+    open-cluster-management.io/user-identity: ZmNlZTM1
+  labels:
+    app: 00-operators-install
+spec:
+  clusterSelector:
+    matchLabels:
+      local-cluster: 'true'

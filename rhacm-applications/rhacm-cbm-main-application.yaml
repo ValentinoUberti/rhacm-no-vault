@@ -1,0 +1,63 @@
+apiVersion: app.k8s.io/v1beta1
+kind: Application
+metadata:
+  name: cbm-applications-appset
+  namespace: cbm-applications-appset
+  annotations:
+    apps.open-cluster-management.io/deployables: ''
+    apps.open-cluster-management.io/subscriptions: cbm-applications-appset/cbm-applications-appset-subscription-1,cbm-applications-appset/cbm-applications-appset-subscription-1-local
+    open-cluster-management.io/user-group: c3lzdGVtOnNlcnZpY2VhY2NvdW50cyxzeXN0ZW06c2VydmljZWFjY291bnRzOm9wZW4tY2x1c3Rlci1tYW5hZ2VtZW50LHN5c3RlbTphdXRoZW50aWNhdGVk
+    open-cluster-management.io/user-identity: c3lzdGVtOnNlcnZpY2VhY2NvdW50Om9wZW4tY2x1c3Rlci1tYW5hZ2VtZW50Om11bHRpY2x1c3Rlci1hcHBsaWNhdGlvbnM=
+spec:
+  componentKinds:
+    - group: apps.open-cluster-management.io
+      kind: Subscription
+  descriptor: {}
+  selector:
+    matchExpressions:
+      - key: app
+        operator: In
+        values:
+          - cbm-applications-appset
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+metadata:
+  name: cbm-applications-appset-subscription-1
+  namespace: cbm-applications-appset
+  annotations:
+    apps.open-cluster-management.io/cluster-admin: 'true'
+    apps.open-cluster-management.io/git-branch: main
+    apps.open-cluster-management.io/git-path: appset/infra-cert-tn-01/
+    apps.open-cluster-management.io/manual-refresh-time: '2022-10-12T09:28:53.784Z'
+    apps.open-cluster-management.io/reconcile-option: merge
+    open-cluster-management.io/user-group: b2NwLWluZnJhLWNlcnQtcnVvbG8tYW1taW5pc3RyYXRvcmksc3lzdGVtOmF1dGhlbnRpY2F0ZWQ6b2F1dGgsc3lzdGVtOmF1dGhlbnRpY2F0ZWQ=
+    open-cluster-management.io/user-identity: ZmNlZTM1
+  labels:
+    app: cbm-applications-appset
+    app.kubernetes.io/part-of: cbm-applications-appset
+    apps.open-cluster-management.io/reconcile-rate: medium
+spec:
+  channel: gnking-modernization-cbm-applicationset-cbm-applicationse-ns/gnking-modernization-cbm-applicationset-cbm-applicationse
+  placement:
+    placementRef:
+      name: cbm-applications-appset-placement-1
+      kind: PlacementRule
+posthooks: {}
+prehooks: {}
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: cbm-applications-appset-placement-1
+  namespace: cbm-applications-appset
+  annotations:
+    open-cluster-management.io/user-group: b2NwLWluZnJhLWNlcnQtcnVvbG8tYW1taW5pc3RyYXRvcmksc3lzdGVtOmF1dGhlbnRpY2F0ZWQ6b2F1dGgsc3lzdGVtOmF1dGhlbnRpY2F0ZWQ=
+    open-cluster-management.io/user-identity: ZmNlZTM1
+  labels:
+    app: cbm-applications-appset
+spec:
+  clusterSelector:
+    matchLabels:
+      vendor: OpenShift
+

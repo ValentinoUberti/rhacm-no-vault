@@ -1,0 +1,53 @@
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: GroupSync
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
+  labels:
+    app.kubernetes.io/instance: cluster-infra-cert-tn-01-definition
+  name: ldap-groupsync
+  namespace: group-sync-operator
+spec:
+  providers:
+  - ldap:
+      augmentedActiveDirectory:
+        groupMembershipAttributes:
+        - 'memberOf:1.2.840.113556.1.4.1941:'
+        groupNameAttributes:
+        - cn
+        groupUIDAttribute: distinguishedName
+        groupsQuery:
+          baseDN: OU=ocp-infra-cert,OU=k8sFunctions,OU=Functions,OU=Accounts,DC=fc,DC=dir,DC=crtnet
+          derefAliases: never
+          filter: (&(objectClass=group)(memberOf:1.2.840.113556.1.4.1941:=CN=ocp-infra-cert-accesso-cluster,OU=ocp-infra-cert,OU=k8sFunctions,OU=Functions,OU=Accounts,DC=fc,DC=dir,DC=crtnet))
+          scope: sub
+        userNameAttributes:
+        - sAMAccountName
+        usersQuery:
+          baseDN: ou=Accounts,dc=fc,dc=dir,dc=crtnet
+          derefAliases: never
+          filter: (objectclass=person)
+          pageSize: 0
+          scope: sub
+      caSecret:
+        key: ca.crt
+        kind: Secret
+        name: vault-ldap-ca
+        namespace: group-sync-operator
+      credentialsSecret:
+        kind: Secret
+        name: vault-ldap-group-sync
+        namespace: group-sync-operator
+      insecure: false
+      prune: true
+      url: ldaps://ldap.fc.dir.crtnet
+      whitelist:
+      - CN=ocp-infra-cert-ruolo-amministratori,OU=ocp-infra-cert,OU=k8sFunctions,OU=Functions,OU=Accounts,DC=fc,DC=dir,DC=crtnet
+      - CN=ocp-infra-cert-ruolo-gestione,OU=ocp-infra-cert,OU=k8sFunctions,OU=Functions,OU=Accounts,DC=fc,DC=dir,DC=crtnet
+      - CN=ocp-infra-cert-ruolo-sviluppatori,OU=ocp-infra-cert,OU=k8sFunctions,OU=Functions,OU=Accounts,DC=fc,DC=dir,DC=crtnet
+      - CN=ocp-infra-cert-ruolo-test,OU=ocp-infra-cert,OU=k8sFunctions,OU=Functions,OU=Accounts,DC=fc,DC=dir,DC=crtnet
+      - CN=ocp-infra-cert-ruolo-assistenza,OU=ocp-infra-cert,OU=k8sFunctions,OU=Functions,OU=Accounts,DC=fc,DC=dir,DC=crtnet
+      - CN=ocp-infra-cert-ruolo-supervisione,OU=ocp-infra-cert,OU=k8sFunctions,OU=Functions,OU=Accounts,DC=fc,DC=dir,DC=crtnet
+    name: ldap
+  schedule: '*/3 * * * *'
+
