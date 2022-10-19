@@ -4,9 +4,6 @@ metadata:
   name: placement-install-metallb
   namespace: policies
 spec:
-  clusterConditions:
-  - status: "True"
-    type: ManagedClusterConditionAvailable
   clusterSelectors: 
     matchExpressions:
      - key: name
