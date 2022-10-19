@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
 - group-sync-operator
 - logging-operator
-#- metallb-operator
+- metallb-operator
 - external-secret-operator
 

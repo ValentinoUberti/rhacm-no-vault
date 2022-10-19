@@ -1,0 +1,17 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: placement-install-metallb
+  namespace: policies
+spec:
+  clusterConditions:
+  - status: "True"
+    type: ManagedClusterConditionAvailable
+  clusterSelectors: 
+    matchExpressions:
+     - key: name
+       operator: In
+       values:
+         - fcaktt01
+         - collaudo-trento-01
+

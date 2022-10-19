@@ -5,8 +5,7 @@ metadata:
 policyDefaults:
   namespace: policies
   placement:
-    clusterSelectors:
-      vendor: "OpenShift"
+    placementRulePath: placement.yaml
   remediationAction: enforce
 policies:
   - name: install-metallb
