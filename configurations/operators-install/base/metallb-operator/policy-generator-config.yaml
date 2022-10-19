@@ -5,7 +5,9 @@ metadata:
 policyDefaults:
   namespace: policies
   placement:
-    placementRulePath: placement.yaml
+    clusterSelectors:
+      metallb: 'true'
+
   remediationAction: enforce
 policies:
   - name: install-metallb
