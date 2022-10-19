@@ -3,5 +3,5 @@ kind: Kustomization
 bases:
 - ../../base
 #resources:
-#- openshift-gitops 
+- openshift-gitops 
 - redhat-quay
