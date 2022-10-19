@@ -16,7 +16,6 @@ spec:
   name: metallb-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: metallb-operator.4.10.0-202209061238
 ---
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
