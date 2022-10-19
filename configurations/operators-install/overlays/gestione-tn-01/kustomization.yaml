@@ -4,4 +4,4 @@ bases:
 - ../../base
 #resources:
 #- openshift-gitops 
-#- redhat-quay
+- redhat-quay

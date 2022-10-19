@@ -6,7 +6,7 @@ policyDefaults:
   namespace: policies
   placement:
     clusterSelectors:
-      vendor: "OpenShift"
+      name: local-cluster 
   remediationAction: enforce
 policies:
   - name: install-quay
