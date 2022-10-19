@@ -10,11 +10,9 @@ metadata:
   namespace: openshift-logging
 spec:
   channel: stable
-  installPlanApproval: Manual
   name: cluster-logging
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: cluster-logging.5.5.1
 ---
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
