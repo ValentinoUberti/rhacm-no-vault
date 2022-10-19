@@ -3,4 +3,4 @@ kind: Kustomization
 bases:
 - ../base
 resources:
-  #- integrazione-trento-01 
+- integrazione-trento-01 
