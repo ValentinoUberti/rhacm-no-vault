@@ -4,15 +4,8 @@ metadata:
   name: default
   namespace: openshift-ingress-operator
 spec:
-  clientTLS:
-    clientCA:
-      name: ""
-    clientCertificatePolicy: ""
   defaultCertificate:
     name: vault-wildcard
-  httpEmptyRequestsPolicy: Respond
-  httpErrorCodePages:
-    name: ""
   nodePlacement:
     nodeSelector:
       matchLabels:
