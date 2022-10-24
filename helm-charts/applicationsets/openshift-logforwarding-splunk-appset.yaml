@@ -14,7 +14,7 @@ spec:
     preserveResourcesOnDeletion: true
   template:
     metadata:
-      name: '{{appConfig.destinationServer.name}}-openshift-logforwarding-splunk'
+      name: 'openshift-logforwarding-splunk'
       namespace: openshift-gitops
     spec:
       destination:
