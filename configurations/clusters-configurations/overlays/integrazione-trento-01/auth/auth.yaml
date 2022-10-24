@@ -1,26 +1,11 @@
 apiVersion: v1
-kind: ServiceAccount
+kind: Secret
 metadata:
-  name: vault-secret-puller
+  name: ldap-secret
   namespace: openshift-config
----
-apiVersion: external-secrets.io/v1beta1
-kind: ExternalSecret
-metadata:
-  name: vault-ldap-secret
-  namespace: openshift-config
-spec:
-  secretStoreRef:
-    name: vault-allitude-windows
-    kind: ClusterSecretStore
-  target:
-    name: vault-ldap-secret
-  data:
-  - secretKey: bindPassword
-    remoteRef:
-      key: active-directory/fcdb/fcadbinduserocpc
-      property: password
-      decodingStrategy: None
+type: Opaque
+data:
+  bindPassword: "aTc2enFTQ3FoaEw4"
 ---
 apiVersion: config.openshift.io/v1
 kind: OAuth
@@ -44,7 +29,7 @@ spec:
         - sAMAccountName
       bindDN: cn=fcADBindUserOCPC,ou=_Technical,ou=Accounts,dc=fc,dc=dir,dc=crtnet
       bindPassword:
-        name: vault-ldap-secret
+        name: ldap-secret
       ca:
         name: ca-config-map
       insecure: false
