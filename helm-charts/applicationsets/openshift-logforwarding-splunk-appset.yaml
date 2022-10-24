@@ -24,8 +24,12 @@ spec:
       source:
         helm:
           valueFiles:
-          - values.yaml
-          - '{{appConfig.valuesiFileOverride}}'
+           - values.yaml
+          parameters:
+            - name: forwarding.splunk.token
+              value: '{{appConfig.forwarding.splunk.token}}'
+            - name: forwarding.splunk.hostname
+              value: '{{appConfig.forwarding.splunk.hostname}}'            
         path: helm-charts/openshift-logforwarding-splunk/helm
         repoURL: https://gitlab.servizi.allitude.it/k8s-resources/cluster-ocp-infrastructure/cluster-ocp-infrastructure-gestione-trento-01.git
         targetRevision: '{{appConfig.revision}}'

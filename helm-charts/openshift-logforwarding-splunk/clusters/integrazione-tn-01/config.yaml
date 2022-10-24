@@ -4,18 +4,16 @@ appConfig:
     url: "https://api.fcaktt01.integrazione.enet:6443"
   revision: main
  
-  valuesiFileOverride:
-    forwarding:
-      splunk:
-        # Specify Splunk HEC Token and Index
-        token: 0542dd18-56ae-4e09-b6d0-a7c7632998a0
-        index: unix
-        protocol: https
-        hostname: fcvlsfc1.log.collaudo.servizi.allitude.it 
-        port: 8088
-        insecure: false
-        sourcetype: openshift
-        source: openshift
-
-        # Specify the CA Certificate for Splunk
-        caFile: "files/ca-bundle.crt"
+  forwarding:
+    splunk:
+      # Specify Splunk HEC Token and Index
+      token: 0542dd18-56ae-4e09-b6d0-a7c7632998a0
+      index: unix
+      protocol: https
+      hostname: fcvlsfc1.log.collaudo.servizi.allitude.it 
+      port: 8088
+      insecure: false
+      sourcetype: openshift
+      source: openshift
+      # Specify the CA Certificate for Splunk
+      caFile: "files/ca-bundle.crt"
