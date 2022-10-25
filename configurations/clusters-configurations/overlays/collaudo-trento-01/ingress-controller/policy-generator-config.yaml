@@ -1,0 +1,16 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: ingress-collaudo-trento-01
+policyDefaults:
+  namespace: policies
+  placement:
+    clusterSelectors:
+      name: 'collaudo-trento-01'
+  remediationAction: enforce
+  complianceType: "musthave"
+policies:
+  - name: ingress-config-collaudo-trento-01
+    manifests:
+      - path: ingress-controller.yaml 
+
