@@ -3,6 +3,6 @@ kind: Kustomization
 bases:
 - ../base
 resources:
-- integrazione-tn-01
-- gestione-tn-01
+- integrazione-trento-01
+- gestione-trento-01
 - produzione-trento-01
