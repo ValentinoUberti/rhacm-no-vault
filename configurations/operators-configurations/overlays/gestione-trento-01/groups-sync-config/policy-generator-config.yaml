@@ -9,7 +9,7 @@ policyDefaults:
       name: "local-cluster"
   remediationAction: enforce
 policies:
-  - name: groups-sync-config-gestionet-tn-01
+  - name: groups-sync-config-gestione-tn-01
     manifests:
       - path: groups-sync-config.yaml 
 
