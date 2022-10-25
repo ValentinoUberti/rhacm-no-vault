@@ -1,7 +1,7 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: PolicyGenerator
 metadata:
-  name: auth-config
+  name: auth-config-sviluppo-trento-01
 policyDefaults:
   namespace: policies
   placement:
@@ -10,7 +10,7 @@ policyDefaults:
   remediationAction: enforce
   complianceType: "mustonlyhave"
 policies:
-  - name: auth-config
+  - name: auth-config-sviluppo-trento-01
     manifests:
       - path: auth.yaml 
 
