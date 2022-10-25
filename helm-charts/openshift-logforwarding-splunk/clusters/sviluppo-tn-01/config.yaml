@@ -1,0 +1,10 @@
+appConfig:
+  destinationServer:
+    name: "sviluppo"
+    url: "https://api.fcakst01.sviluppo.enet:6443"
+  revision: main
+  forwarding:
+    splunk:
+      # Specify Splunk HEC Token and Index
+      token: 0542dd18-56ae-4e09-b6d0-a7c7632998a0
+      hostname: fcvlsfc1.log.collaudo.servizi.allitude.it 
