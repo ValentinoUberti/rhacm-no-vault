@@ -4,3 +4,4 @@ resources:
 - openshift-gitops-config 
 - groups-sync-config
 - quay-config
+- logging-forwarder
