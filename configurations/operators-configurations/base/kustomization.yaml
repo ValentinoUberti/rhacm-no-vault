@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
 #- groups-sync-external-secrets USED IF/WHEN VAULT will be in place 
 - groups-sync
+- logging
