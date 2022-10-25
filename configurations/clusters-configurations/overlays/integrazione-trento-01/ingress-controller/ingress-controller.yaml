@@ -5,6 +5,6 @@ data:
 kind: Secret
 metadata:
   creationTimestamp: null
-  name: vault-wildcard
+  name: wildcard
   namespace: openshift-ingress
 type: kubernetes.io/tls
