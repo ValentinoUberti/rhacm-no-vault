@@ -10,28 +10,66 @@ type: Opaque
 apiVersion: logging.openshift.io/v1
 kind: ClusterLogForwarder
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
+  labels:
+    app.kubernetes.io/instance: cluster-sviluppo-tn-01-definition
   name: instance
   namespace: openshift-logging
 spec:
+  inputs:
+  - application:
+      namespaces:
+      - external-secret
+      - group-sync-operator
+      - metallb-system
+      - open-cluster-management-addon-observability
+      - open-cluster-management-agent
+      - open-cluster-management-agent-addon
+      - rhacs-operator
+    name: infrastructure-extra
+  - application:
+      namespaces:
+      - custody-administration
+      - real-estate-administration
+      - compliance
+      - consumer-banking
+      - custody-agreement
+      - customer-care
+      - customer-data
+      - fatture
+      - iam
+      - invoices-dispatcher
+      - legacy-agreement
+      - legacy-messages
+      - location
+      - party-reference
+      - payment-execution
+      - print
+      - product-catalog
+      - sib-fe-main
+      - relationship-management
+    name: cbm-applications
   outputs:
   - name: remoteloki
     secret:
       name: ca-allitude
     type: loki
-    url: https://loki-tn.allitude.enet:8443
+    url: https://loki.collaudo.enet:8443
   - name: openshift-logforwarding-splunk
     secret:
-      name: fluentd-helm-charts-openshift-logforwarding-splunk
+      name: sviluppo-openshift-logforwarding-splunk 
     type: fluentdForward
-    url: tls://fluentd-helm-charts-openshift-logforwarding-splunk.openshift-logging.svc:24224
+    url: tls://sviluppo-openshift-logforwarding-splunk.openshift-logging.svc:24224
   pipelines:
   - inputRefs:
-    - application
+    - cbm-applications
     name: applications-logs
     outputRefs:
     - remoteloki
   - inputRefs:
     - infrastructure
+    - infrastructure-extra
     name: infra-logs
     outputRefs:
     - openshift-logforwarding-splunk

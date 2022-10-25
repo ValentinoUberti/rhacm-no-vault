@@ -1,15 +1,15 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: PolicyGenerator
 metadata:
-  name: logging-forwarder-config-gestione-tn-01 
+  name: logging-forwarder-config-sviluppo-tn-01 
 policyDefaults:
   namespace: policies
   placement:
     clusterSelectors:
-      name: "local-cluster"
+      name: "sviluppo-trento-01"
   remediationAction: enforce
 policies:
-  - name: logging-forwarder-config-gestione-tn-01
+  - name: logging-forwarder-config-sviluppo-tn-01
     manifests:
       - path: logging-forwarder.yaml
 
