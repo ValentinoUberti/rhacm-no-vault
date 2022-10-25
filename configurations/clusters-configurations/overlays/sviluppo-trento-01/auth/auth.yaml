@@ -34,7 +34,7 @@ spec:
       ca:
         name: ca-config-map
       insecure: false
-      url: ldaps://ldap.fc.dir.crtnet/dc=fc,dc=dir,dc=crtnet?sAMAccountName?sub?(&(objectClass=user)(memberOf:1.2.840.113556.1.4.1941:=CN=cluster-ocp-integrazione-trento-01-filtro-accesso-cluster,OU=cluster-ocp-integrazione-trento-01,OU=k8sFunctions,OU=Functions,OU=Accounts,DC=fc,DC=dir,DC=crtnet))
+      url: ldaps://ldap.fc.dir.crtnet/dc=fc,dc=dir,dc=crtnet?sAMAccountName?sub?(&(objectClass=user)(memberOf:1.2.840.113556.1.4.1941:=CN=cluster-ocp-sviluppo-trento-01-filtro-accesso-cluster,OU=cluster-ocp-sviluppo-trento-01,OU=k8sFunctions,OU=Functions,OU=Accounts,DC=fc,DC=dir,DC=crtnet))
     mappingMethod: claim
     name: ldapidp
     type: LDAP
