@@ -27,6 +27,24 @@ spec:
   - application:
       namespaces:
       - custody-administration
+      - real-estate-administration
+      - compliance
+      - consumer-banking
+      - custody-agreement
+      - customer-care
+      - customer-data
+      - fatture
+      - iam
+      - invoices-dispatcher
+      - legacy-agreement
+      - legacy-messages
+      - location
+      - party-reference
+      - payment-execution
+      - print
+      - product-catalog
+      - sib-fe-main
+      - relationship-management
     name: cbm-applications
   outputs:
   - name: remoteloki
@@ -36,9 +54,9 @@ spec:
     url: https://loki.collaudo.enet:8443
   - name: openshift-logforwarding-splunk
     secret:
-      name: fluentd-col-tn-01-openshift-logforwarding-splunk
+      name: collaudo-openshift-logforwarding-splunk
     type: fluentdForward
-    url: tls://fluentd-col-tn-01-openshift-logforwarding-splunk.openshift-logging.svc:24224
+    url: tls://collaudo-openshift-logforwarding-splunk.openshift-logging.svc:24224
   pipelines:
   - inputRefs:
     - cbm-applications
