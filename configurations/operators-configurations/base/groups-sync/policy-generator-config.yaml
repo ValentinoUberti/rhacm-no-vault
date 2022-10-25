@@ -1,7 +1,7 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: PolicyGenerator
 metadata:
-  name: metallb-config
+  name: groups-sync-ldap-ca-config
 policyDefaults:
   namespace: policies
   placement:
@@ -9,7 +9,7 @@ policyDefaults:
       vendor: "OpenShift"
   remediationAction: enforce
 policies:
-  - name: metallb-config 
+  - name: groups-sync-ldap-ca-secrets-config
     manifests:
-      - path: metallb-config.yaml
+      - path: ldap-ca.yaml
 
