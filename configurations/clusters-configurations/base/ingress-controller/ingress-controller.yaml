@@ -5,7 +5,7 @@ metadata:
   namespace: openshift-ingress-operator
 spec:
   defaultCertificate:
-    name: vault-wildcard
+    name: wildcard
   nodePlacement:
     nodeSelector:
       matchLabels:
