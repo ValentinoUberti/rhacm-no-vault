@@ -6,5 +6,5 @@ appConfig:
   forwarding:
     splunk:
       # Specify Splunk HEC Token and Index
-      token: 0a128a61-22ed-4a74-ad16-406713d65670
-      hostname: fcvlsfc1.log.collaudo.servizi.allitude.it 
+      token: 0542dd18-56ae-4e09-b6d0-a7c7632998a0
+      hostname: fcvlsf02.log.servizi.allitude.it 
