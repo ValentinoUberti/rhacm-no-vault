@@ -21,9 +21,9 @@ spec:
     url: https://loki-tn.allitude.enet:8443
   - name: openshift-logforwarding-splunk
     secret:
-      name: fluentd-helm-charts-openshift-logforwarding-splunk
+      name: gestione-tn-01-openshift-logforwarding-splunk
     type: fluentdForward
-    url: tls://fluentd-helm-charts-openshift-logforwarding-splunk.openshift-logging.svc:24224
+    url: tls://gestione-tn-01-openshift-logforwarding-splunk.openshift-logging.svc:24224
   pipelines:
   - inputRefs:
     - application
