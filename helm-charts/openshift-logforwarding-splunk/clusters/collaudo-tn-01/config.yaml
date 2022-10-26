@@ -1,6 +1,6 @@
 appConfig:
   destinationServer:
-    name: "collaudo"
+    name: "collaudo-tn-01"
     url: "https://api.fcakct01.collaudo.enet:6443"
   revision: main
   forwarding:

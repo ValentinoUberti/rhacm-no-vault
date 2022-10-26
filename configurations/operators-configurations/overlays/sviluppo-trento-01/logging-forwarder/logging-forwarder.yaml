@@ -58,9 +58,9 @@ spec:
     url: https://loki.collaudo.enet:8443
   - name: openshift-logforwarding-splunk
     secret:
-      name: sviluppo-openshift-logforwarding-splunk 
+      name: sviluppo-tn-01-openshift-logforwarding-splunk 
     type: fluentdForward
-    url: tls://sviluppo-openshift-logforwarding-splunk.openshift-logging.svc:24224
+    url: tls://sviluppo-tn-01-openshift-logforwarding-splunk.openshift-logging.svc:24224
   pipelines:
   - inputRefs:
     - cbm-applications

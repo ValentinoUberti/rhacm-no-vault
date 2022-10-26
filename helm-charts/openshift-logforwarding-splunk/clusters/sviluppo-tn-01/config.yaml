@@ -1,6 +1,6 @@
 appConfig:
   destinationServer:
-    name: "sviluppo"
+    name: "sviluppo-tn-01"
     url: "https://api.fcakst01.sviluppo.enet:6443"
   revision: main
   forwarding:
