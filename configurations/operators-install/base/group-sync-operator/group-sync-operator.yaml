@@ -22,8 +22,6 @@ kind: OperatorGroup
 metadata:
   annotations:
     olm.providedAPIs: GroupSync.v1alpha1.redhatcop.redhat.io
-  labels:
-    app.kubernetes.io/instance: cluster-infra-cert-tn-01-definition
   name: group-sync-operator
   namespace: group-sync-operator
 spec:

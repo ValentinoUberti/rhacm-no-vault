@@ -10,5 +10,5 @@ spec:
        operator: In
        values:
          - fcaktt01
-         - collaudo-trento-01
+         - staging-01
 
