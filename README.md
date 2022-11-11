@@ -1,4 +1,4 @@
-# OCP git configurations for RHACM policies using kustomize and policy generator plugin
+# OCP git configurations for RHACM policies using kustomize and the policy generator plugin
 
 This repo contains three different directory structure for:
 
