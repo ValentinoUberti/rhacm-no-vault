@@ -54,7 +54,7 @@ For creating the policy in the RHACM hub cluster, create three RHACM application
 
 For info about the policy-generator plugin:
 
-https://github.com/stolostron/policy-generator-plugin[https://github.com/stolostron/policy-generator-plugin]
+https://github.com/stolostron/policy-generator-plugin
 
 
 
